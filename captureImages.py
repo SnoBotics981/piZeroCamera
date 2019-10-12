@@ -25,9 +25,12 @@ while loopForever:
 #    print '              1/10 hertz frame rate'
 #    print '              sensor_mode is 4'
 
-    camera.resolution  = (1640, 1232)
-    camera.sensor_mode = 4
+#    camera.resolution  = (1640, 1232)
+#    camera.sensor_mode = 4
 
+    camera.resolution  = (640, 480)
+    camera.sensor_mode = 7
+    
 # Changing resolution to 1640x1232 for telescope
 
     print 'Enter shutter speed 0.000001 to 10.0 seconds)'
@@ -94,7 +97,7 @@ while loopForever:
 #                camera.capture_continuous(
 #                    '/home/pi/AstroImages/TestingPiCamera/image-{timestamp:%Y-%m-%d-%H-%M-%S-%f}.png')):
                 camera.capture_continuous(
-                    '/home/pi/git/piCamera/images/image-{timestamp:%Y-%m-%d-%H-%M-%S-%f}.png')):
+                    '/home/pi/git/piZeroCamera/images/image-{timestamp:%Y-%m-%d-%H-%M-%S-%f}.png')):
             print(filename)
             if i == numberOfImages-1:
                 break
