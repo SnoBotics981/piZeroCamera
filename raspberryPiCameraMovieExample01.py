@@ -1,8 +1,11 @@
 # This example was grabbed from:
 # https://www.pyimagesearch.com/2015/03/30/accessing-the-raspberry-pi-camera-with-opencv-and-python/
 # it worked to grab a video stream and display it
-# When reduced to a 32x240 image at 16 frames per second I was seeing
+# When reduced to a 320x240 image at 16 frames per second I was seeing
 # about a 1 second delay and about 80% of the CPU.
+# As I'm running on a remote desktop some of the delay may in fact
+# be due to trying to move the images from the Pi to my desktop computer
+
 
 # import the necessary packages
 from picamera.array import PiRGBArray
