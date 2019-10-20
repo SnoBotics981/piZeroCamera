@@ -8,6 +8,10 @@
 # USB camera connected to the Raspberry Pi Zero. I suspect this same
 # code would work equally well on a Raspberry Pi 2/3/or 4.
 
+# This was only grabbing images from the USB camera when I specified
+# VideoCapture(1). When I specified VideoCapture(0) it grabbed from the
+# RaspberryPi Camera.
+
 """
 Simply display the contents of the webcam with optional mirroring using OpenCV 
 via the new Pythonic cv2 interface.  Press <esc> to quit.
@@ -15,17 +19,20 @@ via the new Pythonic cv2 interface.  Press <esc> to quit.
 
 import cv2
 
-
 def show_webcam(mirror=False):
-    cam = cv2.VideoCapture(0)
+    cam0 = cv2.VideoCapture(0)
     while True:
-        ret_val, img = cam.read()
+        ret_val0, img0 = cam0.read()
         if mirror: 
-            img = cv2.flip(img, 1)
-        cv2.imshow('my webcam', img)
-        if cv2.waitKey(1) == 27: 
-            break  # esc to quit
-    cv2.destroyAllWindows()
+            img0 = cv2.flip(img0, 1)
+        cv2.imshow('my webcam 0', img0)
+       	key = cv2.waitKey(1) & 0xFF
+
+	# if the `q` key was pressed, break from the loop
+
+	if key == ord("q"):
+		break
+        cv2.destroyAllWindows()
 
 
 def main():
