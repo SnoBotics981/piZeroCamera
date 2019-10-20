@@ -20,7 +20,7 @@ via the new Pythonic cv2 interface.  Press <esc> to quit.
 import cv2
 
 def show_webcam(mirror=False):
-    cam0 = cv2.VideoCapture(0)
+    cam0 = cv2.VideoCapture(1)
     while True:
         ret_val0, img0 = cam0.read()
         if mirror: 
@@ -32,7 +32,7 @@ def show_webcam(mirror=False):
 
 	if key == ord("q"):
 		break
-        cv2.destroyAllWindows()
+    cv2.destroyAllWindows()
 
 
 def main():
