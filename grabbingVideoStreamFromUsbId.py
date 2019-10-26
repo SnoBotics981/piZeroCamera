@@ -8,6 +8,9 @@ This example, as modified by Rob Steele is working to grab a video
 stream a single specified USB port. For the Raspberry Pi Zero the
 Raspberry Pi camera is located as Port number 0.
 
+10/25/19: Working to grab the Raspberry Pi camera on usb 0. In my experiments
+with the cameras the raspberry pi camera is always on id 0.
+
 At the default values it was using 100% of the CPU on the Pi Zero.
 
 10/25/19: When run on the Pi 4 the high resolution camera, the program
