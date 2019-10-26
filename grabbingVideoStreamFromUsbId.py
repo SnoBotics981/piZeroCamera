@@ -1,12 +1,33 @@
-# Copied this from the web site:
-#
-# https://gist.github.com/tedmiston/6060034
-#
-# This example, as modified by Rob Steele is working to grab a video
-# stream a single specified USB port. For the Raspberry Pi Zero the
-# Raspberry Pi camera is located as Port number 0.
-#
-# At the default values it was using 100% of the CPU.
+
+"""
+Copied this from the web site:
+
+https://gist.github.com/tedmiston/6060034
+
+This example, as modified by Rob Steele is working to grab a video
+stream a single specified USB port. For the Raspberry Pi Zero the
+Raspberry Pi camera is located as Port number 0.
+
+At the default values it was using 100% of the CPU on the Pi Zero.
+
+10/25/19: When run on the Pi 4 the high resolution camera, the program
+crashed. The dump looked like:
+
+python grabbingVideoStreamFromUsbId.py 1&
+[3] 2541
+pi@raspberrypi4-1:~/git/piZeroCamera $ Unable to stop the stream: Invalid argument
+OpenCV Error: Assertion failed (size.width>0 && size.height>0) in imshow, file /build/opencv-L65chJ/opencv-3.2.0+dfsg/modules/highgui/src/window.cpp, line 304
+Traceback (most recent call last):
+  File "grabbingVideoStreamFromUsbId.py", line 44, in <module>
+    main()
+  File "grabbingVideoStreamFromUsbId.py", line 39, in main
+    show_webcam(mirror=True,usbId=sys.argv[1])
+  File "grabbingVideoStreamFromUsbId.py", line 25, in show_webcam
+    cv2.imshow('my webcam 0', img0)
+cv2.error: /build/opencv-L65chJ/opencv-3.2.0+dfsg/modules/highgui/src/window.cpp:304: error: (-215) size.width>0 && size.height>0 in function imshow
+"""
+
+
 """
 Simply display the contents of the webcam with optional mirroring using OpenCV 
 via the new Pythonic cv2 interface.  Press <esc> to quit.
