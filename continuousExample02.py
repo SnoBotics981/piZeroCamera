@@ -1,4 +1,4 @@
-y
+
 from picamera import PiCamera
 from time import sleep
 from fractions import Fraction
@@ -11,7 +11,7 @@ print "continuousExample02.py -merging feature from captureImages.py"
 camera = PiCamera(
 #    resolution=(1280, 720),
     resolution=(1640, 1232),
-# worked by 1/10 hertz    framerate=Fraction(1, 10),
+# worked for 1/10 hertz    framerate=Fraction(1, 10),
     framerate=Fraction(1, 2 ),
     sensor_mode=4)
 

@@ -20,9 +20,13 @@ finally:
     connection.close()
     server_socket.close()
     
-
 # To use this first run this program, I have used it with python 3
 # and then issue the command:
-# vlc tcp/h264://raspberrypi-3.local:8000/
+# vlc tcp/h264://raspberrypi-zero-3.local:8000/
 # This complains a lot - but does at least display the image from
 # the camera on my remote display.
+#
+# The local IP address used above 'raspberrypi-zero-3.local' will need
+# be changed for the IP address of the machine this is run on.
+#
+# Doesn't work very good, crashed after a few seconds.
