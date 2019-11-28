@@ -32,7 +32,7 @@ def show_webcam(mirror=False):
 
 
 def main():
-    show_webcam(mirror=True)
+    show_webcam(mirror=False)
 
 
 if __name__ == '__main__':
