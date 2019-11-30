@@ -18,15 +18,19 @@ import time
 import sys
 import cv2
 
-def processAndDisplayImage (rotationAngle    = 270,
-                            sensorMode       =   3,
-                            resolutionWidth  = 640,
-                            resolutionHeight = 480):
+def processAndDisplayImage (rotationAngle        = 270,
+                            sensorMode           =   3,
+                            resolutionWidth      = 640,
+                            resolutionHeight     = 480,
+                            frameRateNumerator   =  30,
+                            frameRateDenominator =   1):
 
-    print 'rotationAngle    : ', rotationAngle
-    print 'sensorMode       : ', sensorMode
-    print 'resolutionWidth  : ', resolutionWidth
-    print 'resolutionHeight : ', resolutionHeight
+    print 'rotationAngle        : ', rotationAngle
+    print 'sensorMode           : ', sensorMode
+    print 'resolutionWidth      : ', resolutionWidth
+    print 'resolutionHeight     : ', resolutionHeight
+    print 'frameRateNumerator   : ', frameRateNumerator
+    print 'frameRateDenominator : ', frameRateDenominator
     
     # original code was using a 640 x 480 image and had
     # about 1-2 seconds of delay.
@@ -47,10 +51,11 @@ def processAndDisplayImage (rotationAngle    = 270,
 #                                  clock_mode='reset',
 #                                  framerate_range=None)
     
-    camera.sensor_mode = sensorMode
-    camera.resolution  = (resolutionWidth,resolutionHeight)
+    camera.sensor_mode = int(sensorMode)
+    camera.resolution  = (int(resolutionWidth),int(resolutionHeight))
     camera.rotation    = rotationAngle
-
+    camera.framerate   = (int(frameRateNumerator),int(frameRateDenominator))
+    
     print 'camera.revision      ; ', camera.revision
     print 'camera.sensor_mode   : ', camera.sensor_mode
     print 'camera.resolution    : ', camera.resolution
@@ -64,9 +69,11 @@ def processAndDisplayImage (rotationAngle    = 270,
     #camera.framerate = 2
     #rawCapture = PiRGBArray(camera, size=(320, 240))
     
-#    rawCapture        = PiRGBArray(camera, size=(640, 480))
-    rawCapture        = PiRGBArray(camera, size=(resolutionWidth,
-                                                 resolutionHeight))
+    rawCapture        = PiRGBArray(camera, size=(640, 480))
+
+# code below was not working:
+#    rawCapture        = PiRGBArray(camera, size=(resolutionWidth,
+#                                                 resolutionHeight))
  
     # allow the camera to warmup
     time.sleep(0.1)
@@ -101,11 +108,15 @@ def main():
         print 'sys.argv[2]: ', sys.argv[2]
         print 'sys.argv[3]: ', sys.argv[3]
         print 'sys.argv[4]: ', sys.argv[4]
+        print 'sys.argv[5]: ', sys.argv[5]
+        print 'sys.argv[6]: ', sys.argv[6]
         
-        processAndDisplayImage(rotationAngle    = sys.argv[1],
-                               sensorMode       = sys.argv[2],
-                               resolutionWidth  = sys.argv[3],
-                               resolutionHeight = sys.argv[4])
+        processAndDisplayImage(rotationAngle        = sys.argv[1],
+                               sensorMode           = sys.argv[2],
+                               resolutionWidth      = sys.argv[3],
+                               resolutionHeight     = sys.argv[4],
+                               frameRateNumerator   = sys.argv[5],
+                               frameRateDenominator = sys.argv[6])
 
 #        processAndDisplayImage(270, 3, 640, 480)
     else:
