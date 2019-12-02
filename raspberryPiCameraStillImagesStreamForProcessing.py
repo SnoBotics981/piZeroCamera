@@ -10,10 +10,13 @@ import cv2
 
 # initialize the camera and grab a reference to the raw camera capture
 
-camera            = PiCamera()
-camera.resolution = (640, 480)
-rawCapture        = PiRGBArray(camera, size=(640, 480))
- 
+camera             = PiCamera()
+camera.sensor_mode = 3
+camera.resolution  = (640, 480)
+rawCapture         = PiRGBArray(camera, size=(640, 480))
+
+print 'camera.sensor_mode: ', camera.sensor_mode
+
 # allow the camera to warmup
 time.sleep(0.1)
 

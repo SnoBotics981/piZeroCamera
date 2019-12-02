@@ -5,6 +5,10 @@ Some documentation about the Raspberry Pi Camera can be found at:
 
 https://www.raspberrypi.org/documentation/raspbian/applications/camera.md
 
+This is another useful site:
+
+https://www.raspberrypi.org/documentation/hardware/camera/
+
 Programs that are working
 
 	captureImage.py:
