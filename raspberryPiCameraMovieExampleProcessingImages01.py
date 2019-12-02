@@ -21,6 +21,10 @@ import time
 import sys
 import cv2
 
+'''
+These default options are getting 10 frames per second at about 67%
+utilization.
+'''
 
 def processAndDisplayImage (rotationAngle        =  270,
                             sensorMode           =    4,
